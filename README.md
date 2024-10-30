@@ -24,7 +24,7 @@ Ekai is a Slack bot designed to help teams automate responses, retrieve data, an
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/ekai-slack-bot.git
+    git clone https://github.com/AltamashAhmad/ekai-slack-bot.git
     cd ekai-slack-bot
     ```
 
