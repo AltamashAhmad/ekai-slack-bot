@@ -190,21 +190,3 @@ export function registerHomeListener(app) {
         }
     });
 }
-
-
-
-//         try {
-//             await client.views.publish({
-//                 user_id: event.user,
-//                 view: {
-//                     type: 'home',
-//                     blocks: [
-//                         // ... your existing blocks
-//                     ]
-//                 }
-//             });
-//         } catch (error) {
-//             console.error(error);
-//         }
-//     });
-// }
