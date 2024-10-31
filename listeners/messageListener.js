@@ -2,15 +2,13 @@ import fs from 'fs';
 import axios from 'axios';
 import slackifyMarkdown from 'slackify-markdown';
 
-const staticMarkdownResponse = `
-# List of items
-
-* item 1
-* item 2
-* item 3
-
-[here is an example](https://example.com)
-`;
+const staticResponses = [
+    "Hi! How can I help you today?",
+    "Hello! What can I assist you with?",
+    "Hey there! How may I help you?",
+    "Greetings! What do you need help with?",
+    "Hi! How can I be of assistance today?"
+];
 
 const messageListener = (app) => {
     app.message(async ({ message, client }) => {
@@ -42,7 +40,8 @@ const messageListener = (app) => {
                     });
                 }
             } else {
-                const formattedMessage = slackifyMarkdown(staticMarkdownResponse);
+                const randomResponse = staticResponses[Math.floor(Math.random() * staticResponses.length)];
+                const formattedMessage = slackifyMarkdown(randomResponse);
                 await client.chat.postMessage({
                     channel: message.channel,
                     text: formattedMessage

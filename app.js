@@ -23,8 +23,20 @@ registerHomeListener(app);
 app.view('add_to_ekai_modal', addToEkaiView);
 app.view('privacy_modal', privacyView);
 
-// Start the app
-(async () => {
-    await app.start(process.env.PORT || 3000);
-    console.log('⚡️ Slack bot is running!');
-})();
+// ... existing code ...
+
+// Add error handling for socket mode connection
+app.error(async (error) => {
+    console.error('An error occurred:', error);
+  });
+  
+  // Modify the start-up code to include error handling
+  (async () => {
+      try {
+          await app.start(process.env.PORT || 3000);
+          console.log('⚡️ Slack bot is running!');
+      } catch (error) {
+          console.error('Failed to start app:', error);
+          process.exit(1);
+      }
+  })();
